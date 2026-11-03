@@ -1,0 +1,67 @@
+# Weekly "recent activity" section, from the github-profile-builder skill.
+# Checkout pin verified 2026-11-03.
+#
+# What it does: reads the owner's 5 most recently active public repos and rewrites
+# the README section between <!-- analyser:start --> and <!-- analyser:end -->.
+#
+# Security setup:
+# - Runs only our own standard-library script (.github/scripts/github_analyser.py).
+#   No pip install, no third-party actions besides a pinned checkout.
+# - The script treats commit messages as untrusted input (strips HTML and links,
+#   escapes Markdown) and only counts commits the owner authored.
+# - It commits only when the section actually changed. The output has no
+#   relative dates, so quiet weeks produce no commit at all.
+# - The owner name goes in through an env var, never pasted into the shell line.
+
+name: Profile analyser
+
+on:
+  schedule:
+    - cron: "41 6 * * 1" # Mondays 06:41 UTC
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: profile-analyser
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Update the recent activity section
+        id: analyse
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+        run: python3 .github/scripts/github_analyser.py --user "$OWNER" --count 5 --days 30 --readme README.md
+
+      # Banner, images and every other part of the profile are off-limits.
+      - name: Guard - only the activity section of README.md may change
+        if: steps.analyse.outputs.changed == 'true'
+        run: |
+          status="$(git status --porcelain)"
+          if [ "$status" != " M README.md" ]; then
+            echo "::error::The analyser may only change README.md. Got: $status"
+            exit 1
+          fi
+          git show HEAD:README.md | python3 .github/scripts/github_analyser.py --outside > "$RUNNER_TEMP/before"
+          python3 .github/scripts/github_analyser.py --outside < README.md > "$RUNNER_TEMP/after"
+          if ! cmp -s "$RUNNER_TEMP/before" "$RUNNER_TEMP/after"; then
+            echo "::error::Text outside the analyser markers changed (banner, images or other sections). Not committing."
+            exit 1
+          fi
+
+      - name: Commit if it changed
+        if: steps.analyse.outputs.changed == 'true'
+        run: |
+          git add README.md
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -qm "Update recent activity"
+          git push

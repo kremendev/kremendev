@@ -56,6 +56,9 @@ const dima = {
   </tr>
 </table>
 
+<!-- analyser:start -->
+<!-- analyser:end -->
+
 ## 🛰️ Side quests
 
 | | |
