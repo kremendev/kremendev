@@ -58,7 +58,8 @@ def fetch_live(user, count, days, exclude):
     since = (now - timedelta(days=days)).strftime("%Y-%m-%dT%H:%M:%SZ")
     repos = get(f"/users/{user}/repos", per_page=100, sort="pushed")
     detail = {}
-    for repo in pick_repos(repos, user, count, exclude):
+    # look at twice as many candidates as we show, then rank them by real commit dates
+    for repo in pick_repos(repos, user, count * 2, exclude):
         name = repo["name"]
         detail[name] = {
             "commits": get(f"/repos/{user}/{name}/commits", since=since, per_page=100),
@@ -78,11 +79,25 @@ def parse_time(s):
 
 
 def pick_repos(repos, user, count, exclude):
+    """Candidates by GitHub's pushed_at. Only a prefilter: any push (a force-push,
+    a history rewrite, a bot) moves pushed_at without real work happening."""
     keep = [r for r in repos
             if not r.get("fork") and not r.get("archived") and not r.get("private")
             and r["name"].lower() != user.lower() and r["name"] not in exclude]
     keep.sort(key=lambda r: r["pushed_at"] or "", reverse=True)
     return keep[:count]
+
+
+def rank_repos(data, user, count, exclude, since):
+    """The `count` repos with the owner's most recent own commits. Repos with no
+    commits in the window come last, by pushed_at."""
+    scored = []
+    for repo in pick_repos(data["repos"], user, count * 2, exclude):
+        commits = own_commits(data["detail"].get(repo["name"], {}).get("commits", []), user, since)
+        latest = commits[0]["when"].isoformat() if commits else ""
+        scored.append((latest, repo["pushed_at"] or "", repo))
+    scored.sort(key=lambda s: (s[0], s[1]), reverse=True)
+    return [s[2] for s in scored[:count]]
 
 
 def own_commits(commits, user, since):
@@ -129,7 +144,7 @@ def status(when, now):
 def build_section(data, user, count=5, days=30, exclude=(), title="🔭 Recent activity"):
     now = parse_time(data["now"])
     since = now - timedelta(days=days)
-    repos = pick_repos(data["repos"], user, count, set(exclude))
+    repos = rank_repos(data, user, count, set(exclude), since)
     rows, total, langs, shipped = [], 0, Counter(), []
 
     for repo in repos:
