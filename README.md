@@ -61,13 +61,13 @@ const dima = {
 
 | | Repo | Latest change | Date |
 | --- | --- | --- | --- |
-| 🟢 | [**github-profile-builder**](https://github.com/kremendev/github-profile-builder)<br><sub>Python</sub> | [github-profile-builder v1.0.0](https://github.com/kremendev/github-profile-builder/commit/e97d5b6f67849f4ff387ae0dac14af5a161807ee) | 3 Nov 2026 |
+| 🟡 | [**pinhole-manual**](https://github.com/kremendev/pinhole-manual)<br><sub>HTML</sub> | [Use h3 for step, caption and footer headings](https://github.com/kremendev/pinhole-manual/commit/9991f87943bacc3f5ee05502ab759339ead17047)<br><sub>+4 more in 30 days</sub> | 19 Oct 2026 |
+| 🟡 | [**pinhole-ai**](https://github.com/kremendev/pinhole-ai)<br><sub>HTML</sub> | [Package and upload PDF \+ zipped site](https://github.com/kremendev/pinhole-ai/commit/d86388acce39f1d812653e8aa96a4f8933960564)<br><sub>+12 more in 30 days</sub> | 5 Oct 2026 |
+| 🟡 | [**good-prompt-reminder**](https://github.com/kremendev/good-prompt-reminder) | [Add good-prompt-reminder skill](https://github.com/kremendev/good-prompt-reminder/commit/207151226443123a6b7109cae8331f07075bf872) | 24 Oct 2026 |
+| 🟢 | [**github-profile-builder**](https://github.com/kremendev/github-profile-builder)<br><sub>Python</sub> | [github-profile-builder v1.1.0: profile analyser](https://github.com/kremendev/github-profile-builder/commit/f63b9e064bbb7d08fdff873e41ce5965332478c5)<br><sub>+1 more in 30 days</sub> | 3 Nov 2026 |
 | 🟢 | [**world-of-agents**](https://github.com/kremendev/world-of-agents)<br><sub>TypeScript</sub> | [v2: why run 2 started in auto \(interactive default since 2.1.283\)](https://github.com/kremendev/world-of-agents/commit/9cd8c5c5922c158b8681416344457736ada670b9)<br><sub>+12 more in 30 days</sub> | 28 Oct 2026 |
-| 🟡 | [**good-prompt-reminder**](https://github.com/kremendev/good-prompt-reminder) | [Add good-prompt-reminder skill](https://github.com/kremendev/good-prompt-reminder/commit/35e93f1601c29e34c7665e0ffa027ffc0b1556a2) | 24 Oct 2026 |
-| 🟡 | [**CollegeTasks\_Modal**](https://github.com/kremendev/CollegeTasks_Modal)<br><sub>CSS</sub> | [Fix modal close button](https://github.com/kremendev/CollegeTasks_Modal/commit/5b2c2ad73522a5c919e3ccf529228094bde051f6)<br><sub>+1 more in 30 days</sub> | 20 Oct 2026 |
-| 🟡 | [**pinhole-manual**](https://github.com/kremendev/pinhole-manual)<br><sub>HTML</sub> | [Use h3 for step, caption and footer headings](https://github.com/kremendev/pinhole-manual/commit/ac0f589ab2417aeebf8138500b3795191d959097)<br><sub>+4 more in 30 days</sub> | 19 Oct 2026 |
 
-<sub>Last 30 days: 22 commits across 5 repos, mostly TypeScript. 🟢 this week · 🟡 this month · ⚪ quieter. Updated automatically from my 5 most recently active public repos.</sub>
+<sub>Last 30 days: 34 commits across 5 repos, mostly HTML. 🟢 this week · 🟡 this month · ⚪ quieter. Updated automatically from my 5 most recently active public repos.</sub>
 <!-- analyser:end -->
 
 ## 🛰️ Side quests
