@@ -61,13 +61,15 @@ const dima = {
 
 | | Repo | Latest change | Date |
 | --- | --- | --- | --- |
-| 🟢 | [**github-profile-builder**](https://github.com/kremendev/github-profile-builder)<br><sub>Python</sub> | [Analyser: rank repos by latest own commit, not pushed\_at](https://github.com/kremendev/github-profile-builder/commit/cfe5a89b8c793b64550dbda42a32f162d5841258)<br><sub>+2 more in 30 days</sub> | 3 Nov 2026 |
-| 🟢 | [**world-of-agents**](https://github.com/kremendev/world-of-agents)<br><sub>TypeScript</sub> | [v2: why run 2 started in auto \(interactive default since 2.1.283\)](https://github.com/kremendev/world-of-agents/commit/9cd8c5c5922c158b8681416344457736ada670b9)<br><sub>+12 more in 30 days</sub> | 28 Oct 2026 |
+| 🟢 | [**world-of-agents**](https://github.com/kremendev/world-of-agents)<br><sub>JavaScript</sub> | [milestone 2c: bundled hall, start and restart, voice](https://github.com/kremendev/world-of-agents/commit/7d8a6312996442be145d6d2ed90e5c9919988e16)<br><sub>+30 more in 30 days</sub> | 8 Nov 2026 |
+| 🟢 | [**github-profile-builder**](https://github.com/kremendev/github-profile-builder)<br><sub>Python</sub> | [Changelog: correct the description length note](https://github.com/kremendev/github-profile-builder/commit/dff4b5ed315f494737c6af89a9afd7809f8539cb)<br><sub>+5 more in 30 days</sub> | 3 Nov 2026 |
 | 🟡 | [**good-prompt-reminder**](https://github.com/kremendev/good-prompt-reminder) | [Add good-prompt-reminder skill](https://github.com/kremendev/good-prompt-reminder/commit/207151226443123a6b7109cae8331f07075bf872) | 24 Oct 2026 |
 | 🟡 | [**CollegeTasks\_Modal**](https://github.com/kremendev/CollegeTasks_Modal)<br><sub>CSS</sub> | [Fix modal close button](https://github.com/kremendev/CollegeTasks_Modal/commit/5b2c2ad73522a5c919e3ccf529228094bde051f6)<br><sub>+1 more in 30 days</sub> | 20 Oct 2026 |
-| 🟡 | [**pinhole-manual**](https://github.com/kremendev/pinhole-manual)<br><sub>HTML</sub> | [Use h3 for step, caption and footer headings](https://github.com/kremendev/pinhole-manual/commit/9991f87943bacc3f5ee05502ab759339ead17047)<br><sub>+4 more in 30 days</sub> | 19 Oct 2026 |
+| 🟡 | [**pinhole-manual**](https://github.com/kremendev/pinhole-manual)<br><sub>HTML</sub> | [Use h3 for step, caption and footer headings](https://github.com/kremendev/pinhole-manual/commit/9991f87943bacc3f5ee05502ab759339ead17047)<br><sub>+1 more in 30 days</sub> | 19 Oct 2026 |
 
-<sub>Last 30 days: 24 commits across 5 repos, mostly TypeScript. 🟢 this week · 🟡 this month · ⚪ quieter. Updated automatically from my 5 most recently active public repos.</sub>
+**Recently shipped:** [world-of-agents v2.2.0](https://github.com/kremendev/world-of-agents/releases/tag/v2.2.0) (5 Nov) · [world-of-agents v2.1.0](https://github.com/kremendev/world-of-agents/releases/tag/v2.1.0) (5 Nov) · [world-of-agents v2.0.0](https://github.com/kremendev/world-of-agents/releases/tag/v2.0.0) (5 Nov)
+
+<sub>Last 30 days: 42 commits across 5 repos, mostly JavaScript. 🟢 this week · 🟡 this month · ⚪ quieter. Updated automatically from my 5 most recently active public repos.</sub>
 <!-- analyser:end -->
 
 ## 🛰️ Side quests
